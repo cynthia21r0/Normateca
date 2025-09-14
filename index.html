@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normateca Digital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #0f0c29;
+            --secondary-color: #24243e;
+            --accent-color: #00eeff;
+            --accent-color-2: #ff00ff;
+            --accent-color-3: #ffd700;
+            --text-color: #e6e6ff;
+            --light-bg: #16162a;
+            --white: #f0f0ff;
+            --gradient: linear-gradient(135deg, #0f0c29 0%, #24243e 50%, #302b63 100%);
+            --neon-gradient: linear-gradient(45deg, #00eeff, #ff00ff, #ffd700, #00eeff);
+            --shadow: 0 10px 25px rgba(0,238,255,0.15);
+            --neon-glow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--accent-color), 0 0 20px var(--accent-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--primary-color);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 0, 255, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 238, 255, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.03) 0%, transparent 80%);
+        }
+
+        /* Header */
+        header {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(0, 238, 255, 0.3);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(0,238,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .floating-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 1.5rem;
+            color: rgba(0, 238, 255, 0.5);
+            animation: floatIcon 15s infinite ease-in-out;
+        }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(20px, -15px) rotate(5deg); }
+            50% { transform: translate(-15px, 10px) rotate(-5deg); }
+            75% { transform: translate(10px, 15px) rotate(3deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            animation: slideInDown 1s ease-out;
+            text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color), 0 0 30px var(--accent-color);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes slideInDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(15, 12, 41, 0.9);
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 238, 255, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 0 2rem;
+        }
+
+        .nav-item {
+            background: rgba(36, 36, 62, 0.8);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 238, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 238, 255, 0.2);
+        }
+
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0,238,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-item:hover::before {
+            left: 100%;
+        }
+
+        .nav-item:hover {
+            background: rgba(0, 238, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px var(--accent-color);
+            text-shadow: 0 0 5px var(--white);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background: rgba(36, 36, 62, 0.5);
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+            border: 1px solid rgba(0, 238, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .section:nth-child(even) {
+            animation-delay: 0.2s;
+        }
+
+        .section:nth-child(odd) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-header {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 1.5rem 2rem;
+            position: relative;
+            border-bottom: 1px solid rgba(0, 238, 255, 0.3);
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 5px var(--accent-color);
+        }
+
+        .section-content {
+            padding: 2rem;
+        }
+
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .card {
+            background: rgba(22, 22, 42, 0.7);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+            transition: all 0.3s ease;
+            position: relative;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(0, 238, 255, 0.2);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,238,255,0.2);
+            border-left: 4px solid var(--accent-color-2);
+        }
+
+        .card h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .link-button {
+            display: inline-block;
+            background: rgba(0, 238, 255, 0.2);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+            border: 1px solid rgba(0, 238, 255, 0.3);
+        }
+
+        .link-button:hover {
+            background: rgba(0, 238, 255, 0.3);
+            transform: scale(1.05);
+            box-shadow: 0 0 10px var(--accent-color);
+        }
+
+        /* Standards Grid */
+        .standards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .standard-card {
+            background: linear-gradient(135deg, rgba(36, 36, 62, 0.5) 0%, rgba(22, 22, 42, 0.7) 100%);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,238,255,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 238, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .standard-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,238,255,0.2);
+            border: 1px solid var(--accent-color);
+        }
+
+        .standard-card h4 {
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Privacy Notice */
+        .privacy-form {
+            background: rgba(22, 22, 42, 0.7);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(0, 238, 255, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(15, 12, 41, 0.5);
+            border: 2px solid rgba(0, 238, 255, 0.3);
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            color: var(--text-color);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 10px rgba(0,238,255,0.3);
+        }
+
+        /* Scroll Animation */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            .section-content {
+                padding: 1rem;
+            }
+
+            .cards-grid,
+            .standards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--gradient);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            border: 1px solid var(--accent-color);
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px var(--accent-color);
+        }
+
+        /* Additional styles for better organization */
+        .info-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .info-section {
+            background: rgba(22, 22, 42, 0.7);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-color-2);
+            backdrop-filter: blur(5px);
+        }
+
+        .info-section h3 {
+            color: var(--accent-color-2);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .legal-notice {
+            background-color: rgba(108, 117, 125, 0.2);
+            border-left: 4px solid var(--accent-color-3);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .legal-notice p {
+            margin: 0;
+            color: var(--accent-color-3);
+            font-style: italic;
+        }
+
+        /* Animations for decorative elements */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        .neon-text {
+            text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+        }
+
+        /* Animated background elements */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .bg-element {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: floatAround 20s infinite linear;
+        }
+
+        @keyframes floatAround {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(100px, 50px) rotate(90deg); }
+            50% { transform: translate(50px, 100px) rotate(180deg); }
+            75% { transform: translate(-50px, 75px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+
+        /* Animated icons */
+        .animated-icon {
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated background elements -->
+    <div class="animated-bg">
+        <div class="bg-element" style="width: 300px; height: 300px; background: var(--accent-color); top: 10%; left: 5%; animation-delay: 0s;"></div>
+        <div class="bg-element" style="width: 200px; height: 200px; background: var(--accent-color-2); top: 60%; left: 80%; animation-delay: -5s;"></div>
+        <div class="bg-element" style="width: 250px; height: 250px; background: var(--accent-color-3); top: 30%; left: 70%; animation-delay: -10s;"></div>
+    </div>
+
+    <header>
+        <div class="floating-icons">
+            <div class="floating-icon" style="top: 20%; left: 10%; animation-delay: 0s;"><i class="fas fa-lock"></i></div>
+            <div class="floating-icon" style="top: 60%; left: 15%; animation-delay: 2s;"><i class="fas fa-shield-alt"></i></div>
+            <div class="floating-icon" style="top: 30%; left: 85%; animation-delay: 4s;"><i class="fas fa-key"></i></div>
+            <div class="floating-icon" style="top: 70%; left: 80%; animation-delay: 6s;"><i class="fas fa-user-lock"></i></div>
+        </div>
+        
+        <div class="header-content">
+            <h1><i class="fas fa-book animated-icon"></i> Normateca Digital</h1>
+            <p class="subtitle">Portal Integral de Normativas y Estándares de Información</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#aspectos-eticos" class="nav-item"><i class="fas fa-balance-scale"></i> Aspectos Éticos</a>
+            <a href="#normativas" class="nav-item"><i class="fas fa-gavel"></i> Normativas</a>
+            <a href="#estandares" class="nav-item"><i class="fas fa-shield-alt"></i> Estándares</a>
+            <a href="#aviso-privacidad" class="nav-item"><i class="fas fa-user-lock"></i> Aviso de Privacidad</a>
+        </div>
+    </nav>
+
+    <main>
+        <section id="aspectos-eticos" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-balance-scale neon-text" style="color: var(--accent-color-2);"></i> Aspectos Éticos y Legales del Manejo de la Información</h2>
+                <p>Fundamentos para el manejo responsable de datos e información</p>
+            </div>
+            <div class="section-content">
+                <div class="info-container">
+                    <div class="info-section">
+                        <h3><i class="fas fa-info-circle"></i> ¿Qué son los aspectos éticos y legales?</h3>
+                        <p>El manejo ético y legal de la información constituye un pilar fundamental en la era digital. Comprende principios, normas y regulaciones que garantizan el uso responsable, transparente y seguro de los datos personales y la información en general.</p>
+                    </div>
+                    
+                    <div class="info-section">
+                        <h3><i class="fas fa-star"></i> Principios Fundamentales</h3>
+                        <ul style="margin-left: 2rem; margin-top: 1rem;">
+                            <li><strong class="neon-text" style="color: var(--accent-color);">Transparencia:</strong> Informar claramente sobre el uso de los datos</li>
+                            <li><strong class="neon-text" style="color: var(--accent-color);">Proporcionalidad:</strong> Recopilar solo los datos necesarios</li>
+                            <li><strong class="neon-text" style="color: var(--accent-color);">Seguridad:</strong> Implementar medidas de protección adecuadas</li>
+                            <li><strong class="neon-text" style="color: var(--accent-color);">Responsabilidad:</strong> Asumir las consecuencias del manejo de información</li>
+                            <li><strong class="neon-text" style="color: var(--accent-color);">Consentimiento:</strong> Obtener autorización expresa para el tratamiento de datos</li>
+                            <li><strong class="neon-text" style="color: var(--accent-color);">Confidencialidad:</strong> Proteger la información contra accesos no autorizados</li>
+                            <li><strong class="neon-text" style="color: var(--accent-color);">Integridad:</strong> Garantizar que la información sea exacta y completa</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-section">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Consecuencias del incumplimiento</h3>
+                        <p>El no cumplir con los aspectos éticos y legales en el manejo de la información puede derivar en:</p>
+                        <!-- <ul style="margin-left: 2rem; margin-top: 1rem;">
+                            <li>Sanciones económicas según las leyes aplicables</li>
+                            <li>Daño a la reputación de personas y organizaciones</li>
+                            <li>Pérdida de confianza por parte de clientes y usuarios</li>
+                            <li>Procesos legales y responsabilidades penales</li>
+                            <li>Exposición a vulnerabilidades de seguridad</li>
+                        </ul> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="normativas" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-gavel neon-text" style="color: var(--accent-color-2);"></i> Normativas Legales Aplicables</h2>
+                <p>Marco jurídico mexicano para la protección de datos e información</p>
+            </div>
+            <div class="section-content">
+                <div class="legal-notice">
+                    <p><i class="fas fa-info-circle"></i> Todas las normativas presentadas están vinculadas a sus versiones oficiales publicadas en el Diario Oficial de la Federación o portales gubernamentales oficiales.</p>
+                </div>
+                
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3><i class="fas fa-lock"></i> Ley General de Protección de Datos Personales de México.</h3>
+                        <p><strong>¿Qué es?</strong> Información</p>
+                        <p><strong>¿Para qué sirve?</strong> Información</p>
+                        <p><strong>Ámbito de aplicación:</strong> Información</p>
+                        <a href="https://url" class="link-button" target="_blank"><i class="fas fa-download"></i> Descargar Ley Completa</a>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-industry"></i> Ley de Propiedad Industrial</h3>
+                        <p><strong>¿Qué es?</strong> Información</p>
+                        <p><strong>¿Para qué sirve?</strong> Información</p>
+                        <p><strong>Protección de secretos industriales:</strong> Información</p>
+                        <a href="https://url" class="link-button" target="_blank"><i class="fas fa-download"></i> Descargar Ley Completa</a>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-copyright"></i> Ley Federal del Derecho de Autor</h3>
+                        <p><strong>¿Qué es?</strong> Información</p>
+                        <p><strong>¿Para qué sirve?</strong> Información</p>
+                        <p><strong>Protección de software:</strong> Información</p>
+                        <a href="https://url" class="link-button" target="_blank"><i class="fas fa-download"></i> Descargar Ley Completa</a>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-balance-scale"></i> Código Penal Federal</h3>
+                        <p><strong>¿Qué es?</strong> Información</p>
+                        <p><strong>¿Para qué sirve?</strong> Información</p>
+                        <p><strong>Delitos informáticos:</strong> Información</p>
+                        <a href="https://url" class="link-button" target="_blank"><i class="fas fa-download"></i> Descargar Código Completo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="estandares" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-shield-alt neon-text" style="color: var(--accent-color-2);"></i> Estándares del Manejo de la Información</h2>
+                <p>Marcos de referencia internacionales para la gestión segura de información</p>
+            </div>
+            <div class="section-content">
+                <div class="legal-notice">
+                    <p><i class="fas fa-info-circle"></i> Estos estándares internacionales proporcionan mejores prácticas para la gestión de seguridad de la información, aunque su adopción es voluntaria, son ampliamente reconocidos a nivel global.</p>
+                </div>
+                
+                <div class="standards-grid">
+                    <div class="standard-card">
+                        <h4>ISO/IEC 27001</h4>
+                        <p><strong>¿Qué es?</strong> Información</p>
+                        <p><strong>¿Para qué sirve?</strong> Información</p>
+                        <p><strong>Beneficios:</strong> Información</p>
+                        <a href="https://url" class="link-button" target="_blank"><i class="fas fa-external-link-alt"></i> Más información</a>
+                    </div>
+
+                    <div class="standard-card">
+                        <h4>ISO/IEC 27002</h4>
+                        <p><strong>¿Qué es?</strong> Información</p>
+                        <p><strong>¿Para qué sirve?</strong> Información</p>
+                        <p><strong>Controles de seguridad:</strong> Información</p>
+                        <a href="https://url" class="link-button" target="_blank"><i class="fas fa-external-link-alt"></i> Más información</a>
+                    </div>
+
+                    <div class="standard-card">
+                        <h4>COBIT</h4>
+                        <p><strong>¿Qué es?</strong> Información</p>
+                        <p><strong>¿Para qué sirve?</strong> Información</p>
+                        <p><strong>Versiones:</strong> Información</p>
+                        <a href="https://url" class="link-button" target="_blank"><i class="fas fa-external-link-alt"></i> Más información</a>
+                    </div>
+
+                    <div class="standard-card">
+                        <h4>NIST Cybersecurity Framework</h4>
+                        <p><strong>¿Qué es?</strong> Información</p>
+                        <p><strong>¿Para qué sirve?</strong> Información</p>
+                        <p><strong>Estructura:</strong> Información</p>
+                        <a href="https://url" class="link-button" target="_blank"><i class="fas fa-external-link-alt"></i> Más información</a>
+                    </div>
+
+                    <div class="standard-card">
+                        <h4>ITIL</h4>
+                        <p><strong>¿Qué es?</strong> Información</p>
+                        <p><strong>¿Para qué sirve?</strong> Información</p>
+                        <p><strong>Versión actual:</strong> Información</p>
+                        <a href="https://url" class="link-button" target="_blank"><i class="fas fa-external-link-alt"></i> Más información</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="aviso-privacidad" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-user-lock neon-text" style="color: var(--accent-color-2);"></i> Aviso de Privacidad</h2>
+                <p>Generador de Aviso de Privacidad Personalizado</p>
+            </div>
+            <div class="section-content">
+                <div class="info-section">
+                    <h3><i class="fas fa-info-circle"></i> Importancia del Aviso de Privacidad</h3>
+                    <p>El aviso de privacidad es un documento físico, electrónico o en cualquier otro formato generado por el responsable que es puesto a disposición del titular de los datos personales, previo al tratamiento de sus datos personales.</p>
+                    <p>Su finalidad es informar a los titulares sobre la existencia y características principales del tratamiento al que serán sometidos sus datos personales.</p>
+                </div>
+                
+                <p>Complete los siguientes datos para generar su aviso de privacidad conforme a la normativa vigente:</p>
+                
+                <div class="privacy-form">
+                    <div class="form-group">
+                        <label for="razon-social">Razón Social:</label>
+                        <input type="text" id="razon-social" placeholder="Ingrese el nombre de su empresa">
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo Electrónico:</label>
+                        <input type="email" id="correo" placeholder="correo@empresa.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="pagina-web">Página Web:</label>
+                        <input type="url" id="pagina-web" placeholder="https://www.suempresa.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="domicilio">Domicilio:</label>
+                        <input type="text" id="domicilio" placeholder="Dirección completa de la empresa">
+                    </div>
+                    <button onclick="generarAviso()" style="background: var(--gradient); color: white; padding: 1rem 2rem; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; margin-top: 1rem; border: 1px solid var(--accent-color); box-shadow: 0 0 10px var(--accent-color);">
+                        <i class="fas fa-file-alt"></i> Generar Aviso de Privacidad
+                    </button>
+                </div>
+
+                <div id="aviso-generado" style="display: none; background: rgba(22, 22, 42, 0.7); padding: 2rem; border-radius: 10px; margin-top: 2rem; border: 1px solid var(--accent-color);">
+                    <h3 style="color: var(--accent-color); margin-bottom: 1rem;"><i class="fas fa-file-alt"></i> Su Aviso de Privacidad:</h3>
+                    <div id="contenido-aviso" style="line-height: 1.8;"></div>
+                    <button onclick="imprimirAviso()" style="background: var(--primary-color); color: white; padding: 0.8rem 1.5rem; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; margin-top: 1.5rem; border: 1px solid var(--accent-color);">
+                        <i class="fas fa-print"></i> Imprimir Aviso
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+    <script>
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        function generarAviso() {
+            const razonSocial = document.getElementById('razon-social').value;
+            const correo = document.getElementById('correo').value;
+            const paginaWeb = document.getElementById('pagina-web').value;
+            const domicilio = document.getElementById('domicilio').value;
+
+            if (!razonSocial || !correo || !domicilio) {
+                alert('Por favor complete todos los campos obligatorios.');
+                return;
+            }
+
+            const avisoHTML = `
+                <h4 style="color: var(--accent-color); margin-bottom: 1rem;">AVISO DE PRIVACIDAD</h4>
+                
+                <p><strong>${razonSocial}</strong>, con domicilio en ${domicilio}, es responsable del tratamiento de los datos personales que nos proporcione.</p>
+                
+                <h5 style="color: var(--accent-color-2); margin: 1.5rem 0 0.5rem 0;">FINALIDADES DEL TRATAMIENTO:</h5>
+                <p>Los datos personales que recabamos serán utilizados para las siguientes finalidades necesarias para el servicio que solicita:</p>
+                <ul style="margin-left: 2rem;">
+                    <li>Identificación y contacto del titular</li>
+                    <li>Prestación de servicios contratados</li>
+                    <li>Facturación y cobranza</li>
+                    <li>Cumplimiento de obligaciones legales</li>
+                    <li>Marketing y prospección comercial (con consentimiento expreso)</li>
+                </ul>
+
+                <h5 style="color: var(--accent-color-2); margin: 1.5rem 0 0.5rem 0;">DATOS PERSONALES TRATADOS:</h5>
+                <p>Para llevar a cabo las finalidades descritas, utilizaremos los siguientes datos personales:</p>
+                <ul style="margin-left: 2rem;">
+                    <li>Datos de identificación (nombre, RFC, CURP)</li>
+                    <li>Datos de contacto (domicilio, teléfono, correo electrónico)</li>
+                    <li>Datos patrimoniales y financieros (información bancaria cuando aplique)</li>
+                </ul>
+
+                <h5 style="color: var(--accent-color-2); margin: 1.5rem 0 0.5rem 0;">DERECHOS ARCO:</h5>
+                <p>Usted tiene derecho a conocer qué datos personales tenemos de usted, para qué los utilizamos y las condiciones del uso que les damos (Acceso). Asimismo, es su derecho solicitar la corrección de su información personal en caso de que esté desactualizada, sea inexacta o incompleta (Rectificación); que la eliminemos de nuestros registros o bases de datos cuando considere que la misma no está siendo utilizada adecuadamente (Cancelación); así como oponerse al uso de seus datos personales para fines específicos (Oposición).</p>
+
+                <h5 style="color: var(--accent-color-2); margin: 1.5rem 0 0.5rem 0;">CONTACTO:</h5>
+                <p>Para ejercer cualquiera de los derechos ARCO, puede contactarnos en:</p>
+                <ul style="margin-left: 2rem;">
+                    <li><strong>Correo electrónico:</strong> ${correo}</li>
+                    ${paginaWeb ? `<li><strong>Página web:</strong> ${paginaWeb}</li>` : ''}
+                    <li><strong>Domicilio:</strong> ${domicilio}</li>
+                </ul>
+
+                <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #aaa;"><strong>Fecha de última actualización:</strong> ${new Date().toLocaleDateString('es-MX')}</p>
+            `;
+
+            document.getElementById('contenido-aviso').innerHTML = avisoHTML;
+            document.getElementById('aviso-generado').style.display = 'block';
+            
+            document.getElementById('aviso-generado').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        function imprimirAviso() {
+            const contenido = document.getElementById('contenido-aviso').innerHTML;
+            const ventanaImpresion = window.open('', '_blank');
+            ventanaImpresion.document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Aviso de Privacidad</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 2rem; background: #0f0c29; color: #e6e6ff; }
+                        h4 { color: #00eeff; }
+                        h5 { color: #ff00ff; margin-top: 1.5rem; }
+                        ul { margin-left: 1.5rem; }
+                    </style>
+                </head>
+                <body>
+                    ${contenido}
+                </body>
+                </html>
+            `);
+            ventanaImpresion.document.close();
+            ventanaImpresion.focus();
+            ventanaImpresion.print();
+        }
+
+        document.querySelectorAll('.card, .standard-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        function createFloatingIcons() {
+            const header = document.querySelector('header');
+            const icons = ['fa-lock', 'fa-shield-alt', 'fa-key', 'fa-user-lock', 'fa-database', 'fa-code', 'fa-server'];
+            
+            for (let i = 0; i < 10; i++) {
+                const icon = document.createElement('div');
+                icon.className = 'floating-icon';
+                icon.innerHTML = `<i class="fas ${icons[Math.floor(Math.random() * icons.length)]}"></i>`;
+                icon.style.top = `${Math.random() * 80 + 10}%`;
+                icon.style.left = `${Math.random() * 80 + 10}%`;
+                icon.style.animationDelay = `${Math.random() * 10}s`;
+                icon.style.fontSize = `${Math.random() * 1 + 1}rem`;
+                document.querySelector('.floating-icons').appendChild(icon);
+            }
+        }
+
+        createFloatingIcons();
+    </script>
+</body>
+</html>
