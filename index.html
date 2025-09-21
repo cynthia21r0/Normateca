@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +24,7 @@
             --white: #f0f0ff;
             --gradient: linear-gradient(135deg, #0f0c29 0%, #24243e 50%, #302b63 100%);
             --neon-gradient: linear-gradient(45deg, #00eeff, #ff00ff, #ffd700, #00eeff);
-            --shadow: 0 10px 25px rgba(0,238,255,0.15);
+            --shadow: 0 10px 25px rgba(0, 238, 255, 0.15);
             --neon-glow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--accent-color), 0 0 20px var(--accent-color);
         }
 
@@ -33,7 +34,7 @@
             color: var(--text-color);
             background: var(--primary-color);
             overflow-x: hidden;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 10% 20%, rgba(255, 0, 255, 0.05) 0%, transparent 20%),
                 radial-gradient(circle at 90% 80%, rgba(0, 238, 255, 0.05) 0%, transparent 20%),
                 radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.03) 0%, transparent 80%);
@@ -78,15 +79,35 @@
         }
 
         @keyframes floatIcon {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(20px, -15px) rotate(5deg); }
-            50% { transform: translate(-15px, 10px) rotate(-5deg); }
-            75% { transform: translate(10px, 15px) rotate(3deg); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(20px, -15px) rotate(5deg);
+            }
+
+            50% {
+                transform: translate(-15px, 10px) rotate(-5deg);
+            }
+
+            75% {
+                transform: translate(10px, 15px) rotate(3deg);
+            }
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         .header-content {
@@ -108,13 +129,27 @@
         }
 
         @keyframes slideInDown {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         @keyframes slideInUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         /* Navigation */
@@ -159,7 +194,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0,238,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(0, 238, 255, 0.2), transparent);
             transition: left 0.5s;
         }
 
@@ -248,7 +283,7 @@
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,238,255,0.2);
+            box-shadow: 0 10px 25px rgba(0, 238, 255, 0.2);
             border-left: 4px solid var(--accent-color-2);
         }
 
@@ -294,7 +329,7 @@
             background: linear-gradient(135deg, rgba(36, 36, 62, 0.5) 0%, rgba(22, 22, 42, 0.7) 100%);
             border-radius: 10px;
             padding: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0,238,255,0.1);
+            box-shadow: 0 5px 15px rgba(0, 238, 255, 0.1);
             transition: all 0.3s ease;
             border: 1px solid rgba(0, 238, 255, 0.2);
             backdrop-filter: blur(5px);
@@ -302,7 +337,7 @@
 
         .standard-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,238,255,0.2);
+            box-shadow: 0 15px 35px rgba(0, 238, 255, 0.2);
             border: 1px solid var(--accent-color);
         }
 
@@ -348,7 +383,7 @@
         .form-group input:focus {
             outline: none;
             border-color: var(--accent-color);
-            box-shadow: 0 0 10px rgba(0,238,255,0.3);
+            box-shadow: 0 0 10px rgba(0, 238, 255, 0.3);
         }
 
         /* Scroll Animation */
@@ -463,9 +498,17 @@
         }
 
         @keyframes pulse {
-            0% { opacity: 0.5; }
-            50% { opacity: 1; }
-            100% { opacity: 0.5; }
+            0% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.5;
+            }
         }
 
         .neon-text {
@@ -491,11 +534,25 @@
         }
 
         @keyframes floatAround {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(100px, 50px) rotate(90deg); }
-            50% { transform: translate(50px, 100px) rotate(180deg); }
-            75% { transform: translate(-50px, 75px) rotate(270deg); }
-            100% { transform: translate(0, 0) rotate(360deg); }
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(100px, 50px) rotate(90deg);
+            }
+
+            50% {
+                transform: translate(50px, 100px) rotate(180deg);
+            }
+
+            75% {
+                transform: translate(-50px, 75px) rotate(270deg);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
         }
 
         /* Animated icons */
@@ -505,27 +562,45 @@
         }
 
         @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
     </style>
 </head>
+
 <body>
     <!-- Animated background elements -->
     <div class="animated-bg">
-        <div class="bg-element" style="width: 300px; height: 300px; background: var(--accent-color); top: 10%; left: 5%; animation-delay: 0s;"></div>
-        <div class="bg-element" style="width: 200px; height: 200px; background: var(--accent-color-2); top: 60%; left: 80%; animation-delay: -5s;"></div>
-        <div class="bg-element" style="width: 250px; height: 250px; background: var(--accent-color-3); top: 30%; left: 70%; animation-delay: -10s;"></div>
+        <div class="bg-element"
+            style="width: 300px; height: 300px; background: var(--accent-color); top: 10%; left: 5%; animation-delay: 0s;">
+        </div>
+        <div class="bg-element"
+            style="width: 200px; height: 200px; background: var(--accent-color-2); top: 60%; left: 80%; animation-delay: -5s;">
+        </div>
+        <div class="bg-element"
+            style="width: 250px; height: 250px; background: var(--accent-color-3); top: 30%; left: 70%; animation-delay: -10s;">
+        </div>
     </div>
 
     <header>
         <div class="floating-icons">
-            <div class="floating-icon" style="top: 20%; left: 10%; animation-delay: 0s;"><i class="fas fa-lock"></i></div>
-            <div class="floating-icon" style="top: 60%; left: 15%; animation-delay: 2s;"><i class="fas fa-shield-alt"></i></div>
-            <div class="floating-icon" style="top: 30%; left: 85%; animation-delay: 4s;"><i class="fas fa-key"></i></div>
-            <div class="floating-icon" style="top: 70%; left: 80%; animation-delay: 6s;"><i class="fas fa-user-lock"></i></div>
+            <div class="floating-icon" style="top: 20%; left: 10%; animation-delay: 0s;"><i class="fas fa-lock"></i>
+            </div>
+            <div class="floating-icon" style="top: 60%; left: 15%; animation-delay: 2s;"><i
+                    class="fas fa-shield-alt"></i></div>
+            <div class="floating-icon" style="top: 30%; left: 85%; animation-delay: 4s;"><i class="fas fa-key"></i>
+            </div>
+            <div class="floating-icon" style="top: 70%; left: 80%; animation-delay: 6s;"><i
+                    class="fas fa-user-lock"></i></div>
         </div>
-        
+
         <div class="header-content">
             <h1><i class="fas fa-book animated-icon"></i> Normateca Digital</h1>
             <p class="subtitle">Portal Integral de Normativas y Estándares de Información</p>
@@ -537,39 +612,49 @@
             <a href="#aspectos-eticos" class="nav-item"><i class="fas fa-balance-scale"></i> Aspectos Éticos</a>
             <a href="#normativas" class="nav-item"><i class="fas fa-gavel"></i> Normativas</a>
             <a href="#estandares" class="nav-item"><i class="fas fa-shield-alt"></i> Estándares</a>
-            <a href="#aviso-privacidad" class="nav-item"><i class="fas fa-user-lock"></i> Aviso de Privacidad</a>
         </div>
     </nav>
 
     <main>
         <section id="aspectos-eticos" class="section">
             <div class="section-header">
-                <h2><i class="fas fa-balance-scale neon-text" style="color: var(--accent-color-2);"></i> Aspectos Éticos y Legales del Manejo de la Información</h2>
+                <h2><i class="fas fa-balance-scale neon-text" style="color: var(--accent-color-2);"></i> Aspectos Éticos
+                    y Legales del Manejo de la Información</h2>
                 <p>Fundamentos para el manejo responsable de datos e información</p>
             </div>
             <div class="section-content">
                 <div class="info-container">
                     <div class="info-section">
                         <h3><i class="fas fa-info-circle"></i> ¿Qué son los aspectos éticos y legales?</h3>
-                        <p>El manejo ético y legal de la información constituye un pilar fundamental en la era digital. Comprende principios, normas y regulaciones que garantizan el uso responsable, transparente y seguro de los datos personales y la información en general.</p>
+                        <p>El manejo ético y legal de la información constituye un pilar fundamental en la era digital.
+                            Comprende principios, normas y regulaciones que garantizan el uso responsable, transparente
+                            y seguro de los datos personales y la información en general.</p>
                     </div>
-                    
+
                     <div class="info-section">
                         <h3><i class="fas fa-star"></i> Principios Fundamentales</h3>
                         <ul style="margin-left: 2rem; margin-top: 1rem;">
-                            <li><strong class="neon-text" style="color: var(--accent-color);">Transparencia:</strong> Informar claramente sobre el uso de los datos</li>
-                            <li><strong class="neon-text" style="color: var(--accent-color);">Proporcionalidad:</strong> Recopilar solo los datos necesarios</li>
-                            <li><strong class="neon-text" style="color: var(--accent-color);">Seguridad:</strong> Implementar medidas de protección adecuadas</li>
-                            <li><strong class="neon-text" style="color: var(--accent-color);">Responsabilidad:</strong> Asumir las consecuencias del manejo de información</li>
-                            <li><strong class="neon-text" style="color: var(--accent-color);">Consentimiento:</strong> Obtener autorización expresa para el tratamiento de datos</li>
-                            <li><strong class="neon-text" style="color: var(--accent-color);">Confidencialidad:</strong> Proteger la información contra accesos no autorizados</li>
-                            <li><strong class="neon-text" style="color: var(--accent-color);">Integridad:</strong> Garantizar que la información sea exacta y completa</li>
+                            <li><strong class="neon-text" style="color: var(--accent-color);">Transparencia:</strong>
+                                Informar claramente sobre el uso de los datos</li>
+                            <li><strong class="neon-text" style="color: var(--accent-color);">Proporcionalidad:</strong>
+                                Recopilar solo los datos necesarios</li>
+                            <li><strong class="neon-text" style="color: var(--accent-color);">Seguridad:</strong>
+                                Implementar medidas de protección adecuadas</li>
+                            <li><strong class="neon-text" style="color: var(--accent-color);">Responsabilidad:</strong>
+                                Asumir las consecuencias del manejo de información</li>
+                            <li><strong class="neon-text" style="color: var(--accent-color);">Consentimiento:</strong>
+                                Obtener autorización expresa para el tratamiento de datos</li>
+                            <li><strong class="neon-text" style="color: var(--accent-color);">Confidencialidad:</strong>
+                                Proteger la información contra accesos no autorizados</li>
+                            <li><strong class="neon-text" style="color: var(--accent-color);">Integridad:</strong>
+                                Garantizar que la información sea exacta y completa</li>
                         </ul>
                     </div>
-                    
+
                     <div class="info-section">
                         <h3><i class="fas fa-exclamation-triangle"></i> Consecuencias del incumplimiento</h3>
-                        <p>El no cumplir con los aspectos éticos y legales en el manejo de la información puede derivar en:</p>
+                        <p>El no cumplir con los aspectos éticos y legales en el manejo de la información puede derivar
+                            en:</p>
                         <!-- <ul style="margin-left: 2rem; margin-top: 1rem;">
                             <li>Sanciones económicas según las leyes aplicables</li>
                             <li>Daño a la reputación de personas y organizaciones</li>
@@ -584,155 +669,279 @@
 
         <section id="normativas" class="section">
             <div class="section-header">
-                <h2><i class="fas fa-gavel neon-text" style="color: var(--accent-color-2);"></i> Normativas Legales Aplicables</h2>
+                <h2><i class="fas fa-gavel neon-text" style="color: var(--accent-color-2);"></i> Normativas Legales
+                    Aplicables</h2>
                 <p>Marco jurídico mexicano para la protección de datos e información</p>
             </div>
             <div class="section-content">
                 <div class="legal-notice">
-                    <p><i class="fas fa-info-circle"></i> Todas las normativas presentadas están vinculadas a sus versiones oficiales publicadas en el Diario Oficial de la Federación o portales gubernamentales oficiales.</p>
+                    <p><i class="fas fa-info-circle"></i> Todas las normativas presentadas están vinculadas a sus
+                        versiones oficiales publicadas en el Diario Oficial de la Federación o portales gubernamentales
+                        oficiales.</p>
                 </div>
-                
+
                 <div class="cards-grid">
                     <div class="card">
-                        <h3><i class="fas fa-lock"></i> Ley General de Protección de Datos Personales de México.</h3>
-                        <p><strong>¿Qué es?</strong> Información</p>
-                        <p><strong>¿Para qué sirve?</strong> Información</p>
-                        <p><strong>Ámbito de aplicación:</strong> Información</p>
-                        <a href="https://url" class="link-button" target="_blank"><i class="fas fa-download"></i> Descargar Ley Completa</a>
+                        <h3><i class="fas fa-lock"></i> Ley General de Protección de Datos Personales en Posesión de
+                            Sujetos Obligados (LGPDPPSO)</h3>
+                        <p><strong>¿Qué es?</strong> Ley que regula el tratamiento de datos personales en posesión de
+                            entes públicos.</p>
+                        <p><strong>¿Para qué sirve?</strong> Garantiza la protección de datos personales y establece
+                            derechos ARCO (Acceso, Rectificación, Cancelación y Oposición).</p>
+                        <p><strong>Ámbito de aplicación:</strong> Aplica a autoridades, entidades, órganos y organismos
+                            de los poderes Ejecutivo, Legislativo y Judicial, así como a órganos autónomos.</p>
+                        <a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/LGPDPPSO.pdf" class="link-button"
+                            target="_blank"><i class="fas fa-download"></i>
+                            Descargar Ley Completa</a>
                     </div>
 
                     <div class="card">
-                        <h3><i class="fas fa-industry"></i> Ley de Propiedad Industrial</h3>
-                        <p><strong>¿Qué es?</strong> Información</p>
-                        <p><strong>¿Para qué sirve?</strong> Información</p>
-                        <p><strong>Protección de secretos industriales:</strong> Información</p>
-                        <a href="https://url" class="link-button" target="_blank"><i class="fas fa-download"></i> Descargar Ley Completa</a>
+                        <h3><i class="fas fa-industry"></i> Ley de la Propiedad Industrial (ahora Ley Federal de
+                            Protección a la Propiedad Industrial)</h3>
+                        <p><strong>¿Qué es?</strong> Ley que regula los derechos de propiedad industrial en México.</p>
+                        <p><strong>¿Para qué sirve?</strong> Protege patentes, marcas, diseños industriales y secretos
+                            industriales.</p>
+                        <p><strong>Protección de secretos industriales:</strong> Garantiza la confidencialidad y uso
+                            legítimo de información empresarial estratégica.</p>
+                        <a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPI.pdf" class="link-button"
+                            target="_blank"><i class="fas fa-download"></i>
+                            Descargar Ley Completa</a>
                     </div>
 
                     <div class="card">
-                        <h3><i class="fas fa-copyright"></i> Ley Federal del Derecho de Autor</h3>
-                        <p><strong>¿Qué es?</strong> Información</p>
-                        <p><strong>¿Para qué sirve?</strong> Información</p>
-                        <p><strong>Protección de software:</strong> Información</p>
-                        <a href="https://url" class="link-button" target="_blank"><i class="fas fa-download"></i> Descargar Ley Completa</a>
+                        <h3><i class="fas fa-copyright"></i> Ley Federal del Derecho de Autor (LFDA)</h3>
+                        <p><strong>¿Qué es?</strong> Ley que protege las obras literarias, artísticas y científicas en
+                            México.</p>
+                        <p><strong>¿Para qué sirve?</strong> Otorga derechos patrimoniales y morales a los autores sobre
+                            sus obras.</p>
+                        <p><strong>Protección de software:</strong> Reconoce los programas de cómputo como obras
+                            literarias, protegidas por derechos de autor.</p>
+                        <a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/LFDA.pdf" class="link-button"
+                            target="_blank"><i class="fas fa-download"></i>
+                            Descargar Ley Completa</a>
                     </div>
 
                     <div class="card">
                         <h3><i class="fas fa-balance-scale"></i> Código Penal Federal</h3>
-                        <p><strong>¿Qué es?</strong> Información</p>
-                        <p><strong>¿Para qué sirve?</strong> Información</p>
-                        <p><strong>Delitos informáticos:</strong> Información</p>
-                        <a href="https://url" class="link-button" target="_blank"><i class="fas fa-download"></i> Descargar Código Completo</a>
+                        <p><strong>¿Qué es?</strong> Ordenamiento jurídico que tipifica delitos y establece sanciones en
+                            México.</p>
+                        <p><strong>¿Para qué sirve?</strong> Define conductas delictivas y sanciones correspondientes.
+                        </p>
+                        <p><strong>Delitos informáticos:</strong> Contempla sanciones para acceso ilícito a sistemas,
+                            robo de información y fraude electrónico (arts. 211 bis y 211 bis 1-7).</p>
+                        <a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/9.pdf" class="link-button"
+                            target="_blank"><i class="fas fa-download"></i>
+                            Descargar Código Completo</a>
                     </div>
                 </div>
             </div>
         </section>
 
+
         <section id="estandares" class="section">
             <div class="section-header">
-                <h2><i class="fas fa-shield-alt neon-text" style="color: var(--accent-color-2);"></i> Estándares del Manejo de la Información</h2>
+                <h2><i class="fas fa-shield-alt neon-text" style="color: var(--accent-color-2);"></i> Estándares del
+                    Manejo de la Información</h2>
                 <p>Marcos de referencia internacionales para la gestión segura de información</p>
             </div>
             <div class="section-content">
                 <div class="legal-notice">
-                    <p><i class="fas fa-info-circle"></i> Estos estándares internacionales proporcionan mejores prácticas para la gestión de seguridad de la información, aunque su adopción es voluntaria, son ampliamente reconocidos a nivel global.</p>
+                    <p><i class="fas fa-info-circle"></i> Estos estándares internacionales proporcionan mejores
+                        prácticas para la gestión de seguridad de la información, aunque su adopción es voluntaria, son
+                        ampliamente reconocidos a nivel global.</p>
                 </div>
-                
+
                 <div class="standards-grid">
                     <div class="standard-card">
                         <h4>ISO/IEC 27001</h4>
-                        <p><strong>¿Qué es?</strong> Información</p>
-                        <p><strong>¿Para qué sirve?</strong> Información</p>
-                        <p><strong>Beneficios:</strong> Información</p>
-                        <a href="https://url" class="link-button" target="_blank"><i class="fas fa-external-link-alt"></i> Más información</a>
+                        <p><strong>¿Qué es?</strong> Norma internacional que establece los requisitos para un Sistema de
+                            Gestión de Seguridad de la Información (SGSI).</p>
+                        <p><strong>¿Para qué sirve?</strong> Ayuda a proteger la confidencialidad, integridad y
+                            disponibilidad de la información dentro de una organización.</p>
+                        <p><strong>Beneficios:</strong> Cumplimiento normativo, reducción de riesgos y mejora de la
+                            confianza de clientes y socios.</p>
+                        <a href="https://www.iso.org/isoiec-27001-information-security.html" class="link-button"
+                            target="_blank"><i class="fas fa-external-link-alt"></i> Más información</a>
                     </div>
 
                     <div class="standard-card">
                         <h4>ISO/IEC 27002</h4>
-                        <p><strong>¿Qué es?</strong> Información</p>
-                        <p><strong>¿Para qué sirve?</strong> Información</p>
-                        <p><strong>Controles de seguridad:</strong> Información</p>
-                        <a href="https://url" class="link-button" target="_blank"><i class="fas fa-external-link-alt"></i> Más información</a>
+                        <p><strong>¿Qué es?</strong> Norma que proporciona un conjunto de controles de seguridad de la
+                            información basados en mejores prácticas.</p>
+                        <p><strong>¿Para qué sirve?</strong> Sirve como guía práctica para implementar los requisitos de
+                            ISO/IEC 27001.</p>
+                        <p><strong>Controles de seguridad:</strong> Incluye controles relacionados con gestión de
+                            accesos, seguridad física, criptografía y continuidad del negocio.</p>
+                        <a href="https://www.iso.org/standard/75652.html" class="link-button" target="_blank"><i
+                                class="fas fa-external-link-alt"></i> Más información</a>
                     </div>
 
                     <div class="standard-card">
                         <h4>COBIT</h4>
-                        <p><strong>¿Qué es?</strong> Información</p>
-                        <p><strong>¿Para qué sirve?</strong> Información</p>
-                        <p><strong>Versiones:</strong> Información</p>
-                        <a href="https://url" class="link-button" target="_blank"><i class="fas fa-external-link-alt"></i> Más información</a>
+                        <p><strong>¿Qué es?</strong> Marco de referencia para el gobierno y la gestión de TI,
+                            desarrollado por ISACA.</p>
+                        <p><strong>¿Para qué sirve?</strong> Ayuda a alinear la tecnología con los objetivos del negocio
+                            y a gestionar riesgos relacionados con TI.</p>
+                        <p><strong>Versiones:</strong> La más reciente es COBIT 2019, que sustituye a COBIT 5.</p>
+                        <a href="https://www.isaca.org/resources/cobit" class="link-button" target="_blank"><i
+                                class="fas fa-external-link-alt"></i> Más información</a>
                     </div>
 
                     <div class="standard-card">
                         <h4>NIST Cybersecurity Framework</h4>
-                        <p><strong>¿Qué es?</strong> Información</p>
-                        <p><strong>¿Para qué sirve?</strong> Información</p>
-                        <p><strong>Estructura:</strong> Información</p>
-                        <a href="https://url" class="link-button" target="_blank"><i class="fas fa-external-link-alt"></i> Más información</a>
+                        <p><strong>¿Qué es?</strong> Marco de ciberseguridad desarrollado por el Instituto Nacional de
+                            Estándares y Tecnología de EE. UU.</p>
+                        <p><strong>¿Para qué sirve?</strong> Proporciona un conjunto de guías voluntarias para gestionar
+                            y reducir riesgos de ciberseguridad.</p>
+                        <p><strong>Estructura:</strong> Se basa en cinco funciones: Identificar, Proteger, Detectar,
+                            Responder y Recuperar.</p>
+                        <a href="https://www.nist.gov/cyberframework" class="link-button" target="_blank"><i
+                                class="fas fa-external-link-alt"></i> Más información</a>
                     </div>
 
                     <div class="standard-card">
                         <h4>ITIL</h4>
-                        <p><strong>¿Qué es?</strong> Información</p>
-                        <p><strong>¿Para qué sirve?</strong> Información</p>
-                        <p><strong>Versión actual:</strong> Información</p>
-                        <a href="https://url" class="link-button" target="_blank"><i class="fas fa-external-link-alt"></i> Más información</a>
+                        <p><strong>¿Qué es?</strong> Conjunto de buenas prácticas para la gestión de servicios de TI.
+                        </p>
+                        <p><strong>¿Para qué sirve?</strong> Mejora la calidad de los servicios de TI, optimiza procesos
+                            y aumenta la satisfacción del cliente.</p>
+                        <p><strong>Versión actual:</strong> ITIL 4, publicada en 2019, con enfoque en metodologías
+                            ágiles, DevOps y transformación digital.</p>
+                        <a href="https://www.axelos.com/best-practice-solutions/itil" class="link-button"
+                            target="_blank"><i class="fas fa-external-link-alt"></i> Más información</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="aviso-privacidad" class="section">
-            <div class="section-header">
-                <h2><i class="fas fa-user-lock neon-text" style="color: var(--accent-color-2);"></i> Aviso de Privacidad</h2>
-                <p>Generador de Aviso de Privacidad Personalizado</p>
+        <!-- Footer -->
+        <footer style="background-color: #2c3e50; color: white; padding: 20px 0; text-align: center; margin-top: 40px;">
+            <div>
+                <p style="margin: 5px 0;">&copy; 2025 Normateca Digital. Todos los derechos reservados.</p>
+                <p style="margin: 5px 0;">
+                    <a href="#" style="color: #ecf0f1; margin: 0 10px; text-decoration: none;">
+                        <i class="fas fa-envelope"></i> Contacto
+                    </a>
+                    <a href="javascript:void(0)" onclick="abrirModal()"
+                        style="color: #ecf0f1; margin: 0 10px; text-decoration: none;">
+                        <i class="fas fa-shield-alt"></i> Aviso de Privacidad
+                    </a>
+                    <!-- <a href="#" style="color: #ecf0f1; margin: 0 10px; text-decoration: none;">
+                    <i class="fas fa-book"></i> Términos de uso
+                </a> -->
+                </p>
+                <div style="margin-top: 10px;">
+                    <a href="#" style="color: #ecf0f1; margin: 0 8px; font-size: 1.2em;">
+                        <i class="fab fa-facebook"> Normatea Utng</i>
+                    </a>
+                    <a href="#" style="color: #ecf0f1; margin: 0 8px; font-size: 1.2em;">
+                        <i class="fab fa-twitter"> Normatea Utng</i>
+                    </a>
+                    <a href="#" style="color: #ecf0f1; margin: 0 8px; font-size: 1.2em;">
+                        <i class="fab fa-linkedin"> Normatea Utng</i>
+                    </a>
+                </div>
             </div>
-            <div class="section-content">
-                <div class="info-section">
-                    <h3><i class="fas fa-info-circle"></i> Importancia del Aviso de Privacidad</h3>
-                    <p>El aviso de privacidad es un documento físico, electrónico o en cualquier otro formato generado por el responsable que es puesto a disposición del titular de los datos personales, previo al tratamiento de sus datos personales.</p>
-                    <p>Su finalidad es informar a los titulares sobre la existencia y características principales del tratamiento al que serán sometidos sus datos personales.</p>
-                </div>
-                
-                <p>Complete los siguientes datos para generar su aviso de privacidad conforme a la normativa vigente:</p>
-                
-                <div class="privacy-form">
-                    <div class="form-group">
-                        <label for="razon-social">Razón Social:</label>
-                        <input type="text" id="razon-social" placeholder="Ingrese el nombre de su empresa">
-                    </div>
-                    <div class="form-group">
-                        <label for="correo">Correo Electrónico:</label>
-                        <input type="email" id="correo" placeholder="correo@empresa.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="pagina-web">Página Web:</label>
-                        <input type="url" id="pagina-web" placeholder="https://www.suempresa.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="domicilio">Domicilio:</label>
-                        <input type="text" id="domicilio" placeholder="Dirección completa de la empresa">
-                    </div>
-                    <button onclick="generarAviso()" style="background: var(--gradient); color: white; padding: 1rem 2rem; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; margin-top: 1rem; border: 1px solid var(--accent-color); box-shadow: 0 0 10px var(--accent-color);">
-                        <i class="fas fa-file-alt"></i> Generar Aviso de Privacidad
-                    </button>
-                </div>
+        </footer>
+        <!-- Modal Aviso de Privacidad -->
+        <div id="modalAviso" style="display:none; position: fixed; top:0; left:0; width:100%; height:100%; 
+    background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); z-index:2000; 
+    align-items: center; justify-content: center; padding: 20px;">
+            <div style="background: var(--light-bg); color: var(--white); border-radius: 12px; max-width: 800px; width: 100%; 
+        padding: 2rem; position: relative; box-shadow: 0 0 20px var(--accent-color); border: 1px solid var(--accent-color); 
+        max-height: 90vh; overflow-y: auto;">
 
-                <div id="aviso-generado" style="display: none; background: rgba(22, 22, 42, 0.7); padding: 2rem; border-radius: 10px; margin-top: 2rem; border: 1px solid var(--accent-color);">
-                    <h3 style="color: var(--accent-color); margin-bottom: 1rem;"><i class="fas fa-file-alt"></i> Su Aviso de Privacidad:</h3>
-                    <div id="contenido-aviso" style="line-height: 1.8;"></div>
-                    <button onclick="imprimirAviso()" style="background: var(--primary-color); color: white; padding: 0.8rem 1.5rem; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; margin-top: 1.5rem; border: 1px solid var(--accent-color);">
-                        <i class="fas fa-print"></i> Imprimir Aviso
-                    </button>
-                </div>
+                <!-- Botón de cierre -->
+                <button onclick="cerrarModal()" style="position:absolute; top:15px; right:15px; background:none; 
+            border:none; color: var(--accent-color); font-size:1.5rem; cursor:pointer;">
+                    <i class="fas fa-times"></i>
+                </button>
+
+                <!-- Contenido -->
+                <h2 style="margin-bottom: 1rem; color: var(--accent-color-2); text-align:center;">
+                    <i class="fas fa-shield-alt"></i> AVISO DE PRIVACIDAD
+                </h2>
+
+                <p><b>Normateca Digital</b>, comercialmente conocido como <b>Normateca</b>,
+                    con domicilio en Educación Tecnológica 34, Fracc. Universidad, 37800 Dolores Hidalgo
+                    Cuna de la Independencia Nacional, Gto., es el responsable del uso y protección de sus datos
+                    personales.</p>
+
+                <h3 style="color: var(--accent-color); margin-top:1rem;">FINALIDADES PRIMARIAS</h3>
+                <p>Los datos personales que recabamos de usted, los utilizaremos para las siguientes finalidades que son
+                    necesarias para el servicio que solicita:</p>
+                <ul>
+                    <li>Prestación de cualquier servicio solicitado</li>
+                </ul>
+
+                <h3 style="color: var(--accent-color); margin-top:1rem;">DATOS PERSONALES RECABADOS</h3>
+                <p>Para las finalidades señaladas en el presente aviso de privacidad, podemos recabar sus datos
+                    académicos.</p>
+
+                <h3 style="color: var(--accent-color); margin-top:1rem;">DERECHOS ARCO</h3>
+                <p>Usted tiene derecho a conocer qué datos personales tenemos de usted, para qué los utilizamos y las
+                    condiciones del uso que les damos (<b>Acceso</b>). Asimismo, es su derecho solicitar la corrección
+                    de su información personal en caso de que esté desactualizada, sea inexacta o incompleta
+                    (<b>Rectificación</b>); que la eliminemos de nuestros registros o bases de datos cuando considere
+                    que la misma no está siendo utilizada adecuadamente (<b>Cancelación</b>); así como oponerse al uso
+                    de sus datos personales para fines específicos (<b>Oposición</b>). Estos derechos se conocen como
+                    derechos <b>ARCO</b>.</p>
+                <p>Para el ejercicio de cualquiera de los derechos ARCO, usted deberá presentar la solicitud respectiva
+                    a través de los medios especificados. La respuesta a su solicitud será atendida en un plazo máximo
+                    de 10 días hábiles.</p>
+
+                <h3 style="color: var(--accent-color); margin-top:1rem;">DATOS RECABADOS POR EL SITIO WEB</h3>
+                <ul>
+                    <li>Páginas web visitadas por un usuario</li>
+                    <li>Búsquedas realizadas por un usuario</li>
+                </ul>
+
+                <h3 style="color: var(--accent-color); margin-top:1rem;">CONTACTO</h3>
+                <p>Para más información sobre este aviso de privacidad, puede contactarnos en:</p>
+                <p>
+                    📧 Correo electrónico:
+                    <a href="mailto:normateca.utng@gmail.com" style="color: var(--accent-color); text-decoration:none;">
+                        normateca.utng@gmail.com
+                    </a><br>
+                    🌐 Sitio web:
+                    <a href="https://www.normateca.com" target="_blank"
+                        style="color: var(--accent-color); text-decoration:none;">
+                        www.Normateca.com
+                    </a>
+                </p>
+
+                <p style="text-align:right; font-size:0.9em; color:#bbb;">Última actualización: 21/9/2025</p>
+
+                <!-- Botón cerrar -->
+                <!-- <div style="text-align:center; margin-top:1.5rem;">
+            <button onclick="cerrarModal()" style="background: var(--gradient); border:none; color: var(--white); 
+                padding: 0.7rem 1.5rem; border-radius: 8px; cursor:pointer; 
+                box-shadow: 0 0 10px var(--accent-color); transition: all 0.3s ease;">
+                Cerrar
+            </button>
+        </div> -->
             </div>
-        </section>
+        </div>
+
+
     </main>
 
     <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
 
     <script>
-        
+        function abrirModal() {
+            document.getElementById('modalAviso').style.display = 'flex';
+        }
+        function cerrarModal() {
+            document.getElementById('modalAviso').style.display = 'none';
+        }
+        // Cerrar si se da clic fuera del modal
+        window.onclick = function (event) {
+            const modal = document.getElementById('modalAviso');
+            if (event.target === modal) {
+                cerrarModal();
+            }
+        }
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -746,9 +955,9 @@
             });
         });
 
-        
+
         const backToTop = document.getElementById('backToTop');
-        
+
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
                 backToTop.classList.add('visible');
@@ -782,94 +991,15 @@
             observer.observe(el);
         });
 
-        function generarAviso() {
-            const razonSocial = document.getElementById('razon-social').value;
-            const correo = document.getElementById('correo').value;
-            const paginaWeb = document.getElementById('pagina-web').value;
-            const domicilio = document.getElementById('domicilio').value;
 
-            if (!razonSocial || !correo || !domicilio) {
-                alert('Por favor complete todos los campos obligatorios.');
-                return;
-            }
 
-            const avisoHTML = `
-                <h4 style="color: var(--accent-color); margin-bottom: 1rem;">AVISO DE PRIVACIDAD</h4>
-                
-                <p><strong>${razonSocial}</strong>, con domicilio en ${domicilio}, es responsable del tratamiento de los datos personales que nos proporcione.</p>
-                
-                <h5 style="color: var(--accent-color-2); margin: 1.5rem 0 0.5rem 0;">FINALIDADES DEL TRATAMIENTO:</h5>
-                <p>Los datos personales que recabamos serán utilizados para las siguientes finalidades necesarias para el servicio que solicita:</p>
-                <ul style="margin-left: 2rem;">
-                    <li>Identificación y contacto del titular</li>
-                    <li>Prestación de servicios contratados</li>
-                    <li>Facturación y cobranza</li>
-                    <li>Cumplimiento de obligaciones legales</li>
-                    <li>Marketing y prospección comercial (con consentimiento expreso)</li>
-                </ul>
-
-                <h5 style="color: var(--accent-color-2); margin: 1.5rem 0 0.5rem 0;">DATOS PERSONALES TRATADOS:</h5>
-                <p>Para llevar a cabo las finalidades descritas, utilizaremos los siguientes datos personales:</p>
-                <ul style="margin-left: 2rem;">
-                    <li>Datos de identificación (nombre, RFC, CURP)</li>
-                    <li>Datos de contacto (domicilio, teléfono, correo electrónico)</li>
-                    <li>Datos patrimoniales y financieros (información bancaria cuando aplique)</li>
-                </ul>
-
-                <h5 style="color: var(--accent-color-2); margin: 1.5rem 0 0.5rem 0;">DERECHOS ARCO:</h5>
-                <p>Usted tiene derecho a conocer qué datos personales tenemos de usted, para qué los utilizamos y las condiciones del uso que les damos (Acceso). Asimismo, es su derecho solicitar la corrección de su información personal en caso de que esté desactualizada, sea inexacta o incompleta (Rectificación); que la eliminemos de nuestros registros o bases de datos cuando considere que la misma no está siendo utilizada adecuadamente (Cancelación); así como oponerse al uso de seus datos personales para fines específicos (Oposición).</p>
-
-                <h5 style="color: var(--accent-color-2); margin: 1.5rem 0 0.5rem 0;">CONTACTO:</h5>
-                <p>Para ejercer cualquiera de los derechos ARCO, puede contactarnos en:</p>
-                <ul style="margin-left: 2rem;">
-                    <li><strong>Correo electrónico:</strong> ${correo}</li>
-                    ${paginaWeb ? `<li><strong>Página web:</strong> ${paginaWeb}</li>` : ''}
-                    <li><strong>Domicilio:</strong> ${domicilio}</li>
-                </ul>
-
-                <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #aaa;"><strong>Fecha de última actualización:</strong> ${new Date().toLocaleDateString('es-MX')}</p>
-            `;
-
-            document.getElementById('contenido-aviso').innerHTML = avisoHTML;
-            document.getElementById('aviso-generado').style.display = 'block';
-            
-            document.getElementById('aviso-generado').scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-
-        function imprimirAviso() {
-            const contenido = document.getElementById('contenido-aviso').innerHTML;
-            const ventanaImpresion = window.open('', '_blank');
-            ventanaImpresion.document.write(`
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <title>Aviso de Privacidad</title>
-                    <style>
-                        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 2rem; background: #0f0c29; color: #e6e6ff; }
-                        h4 { color: #00eeff; }
-                        h5 { color: #ff00ff; margin-top: 1.5rem; }
-                        ul { margin-left: 1.5rem; }
-                    </style>
-                </head>
-                <body>
-                    ${contenido}
-                </body>
-                </html>
-            `);
-            ventanaImpresion.document.close();
-            ventanaImpresion.focus();
-            ventanaImpresion.print();
-        }
 
         document.querySelectorAll('.card, .standard-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
+            card.addEventListener('mouseenter', function () {
                 this.style.transform = 'translateY(-8px) scale(1.02)';
             });
-            
-            card.addEventListener('mouseleave', function() {
+
+            card.addEventListener('mouseleave', function () {
                 this.style.transform = 'translateY(0) scale(1)';
             });
         });
@@ -877,7 +1007,7 @@
         function createFloatingIcons() {
             const header = document.querySelector('header');
             const icons = ['fa-lock', 'fa-shield-alt', 'fa-key', 'fa-user-lock', 'fa-database', 'fa-code', 'fa-server'];
-            
+
             for (let i = 0; i < 10; i++) {
                 const icon = document.createElement('div');
                 icon.className = 'floating-icon';
@@ -893,4 +1023,5 @@
         createFloatingIcons();
     </script>
 </body>
+
 </html>
